@@ -4,7 +4,7 @@ function login(request, response){
     const email = request.body.email;
     const password = request.body.password;
     request.session.usernotfound = false;
-    User.findOne({email: email, password: password, verified: true})
+    User.findOne({email: email, password: password})
     .then(function(user){
         if(user){
             request.session.isLoggedIn = true;

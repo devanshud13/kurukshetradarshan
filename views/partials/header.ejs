@@ -22,8 +22,13 @@
               <li><a href="/blog ">Parks</a></li>
               <li><a href="/about ">About</a></li>
               <li><a href="/contact ">Contact</a></li>
-              <li><a href="/login ">login</a></li>
-              <li><a href="/signup ">signup</a></li>
+
+              <%if(username){%>
+                <li><a href="/logout ">Logout</a></li>
+                <%} else {%>
+                  <li><a href="/login ">Login</a></li>
+                  <li><a href="/signup ">Signup</a></li>
+              <%} %>
             </ul>
           </div>
         </div>

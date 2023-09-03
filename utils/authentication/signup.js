@@ -1,6 +1,5 @@
 const User = require("../../modals/user");
 const nodemailer = require("nodemailer");
-const verifymail = require("./verifyMail");
 const mongoose = require("mongoose");
 
 function signup(request, response) {
@@ -29,7 +28,7 @@ function signup(request, response) {
             const html=`<h1>Hi ${username}</h1>
             <h3>Click on the link below to verify your email</h3>
             <a href="${host}/verify?id=${user._id}">Verify</a>`
-            verifymail(subject,email,html);
+            // verifymail(subject,email,html);
             request.session.username = null;
             request.session.usernotfound = false;
             response.redirect("/login");
