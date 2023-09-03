@@ -22,6 +22,9 @@ app.use(express.static("src"));
 app.use(express.static("src/images"));
 app.use(express.static("src/css"));
 app.use(express.static("src/js"));
+app.use(express.static("src/fonts"));
+app.use(express.static("src/components"));
+app.use(express.static("src/scss"));
 app.set("view engine", "ejs");
 app.get('/', function(request,response){
     const user = request.session.username;
