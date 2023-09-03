@@ -1,0 +1,776 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <%- include('partials/meta') %>
+</head>
+
+<body>
+
+  <div class="colorlib-loader">
+  </div>
+  <div id="page">
+ <%- include('partials/header') %>
+    <div id="colorlib-reservation">
+      <!-- <div class="container"> -->
+      <div class="row">
+        <div class="search-wrap">
+          <div class="container">
+            <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#flight"></i>Hotels</a></li>
+              <li><a data-toggle="tab" href="#hotel"></i>Trains</a></li>
+              <!-- <li><a data-toggle="tab" href="#car"></i> Cabs </a></li> -->
+            </ul>
+          </div>
+          <div class="tab-content">
+            <div id="flight" class="tab-pane fade in active">
+              <form method="post" class="colorlib-form">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="date">Where:</label>
+                      <div class="form-field">
+                        <input type="text" id="location" class="form-control" placeholder="Search Location">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <label for="date">Check-in:</label>
+                      <div class="form-field">
+                        <!-- <i class="icon icon-calendar2"></i> -->
+                        <input type="text" id="date" class="form-control date" placeholder="Check-in date">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <label for="date">Check-out:</label>
+                      <div class="form-field">
+                        <!-- <i class="icon icon-calendar2"></i> -->
+                        <input type="text" id="date" class="form-control date" placeholder="Check-out date">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="guests">Guest</label>
+                      <div class="form-field">
+                        <!-- <i class="icon icon-arrow-down3"></i> -->
+                        <select name="people people-primary" id="people" class="form-control">
+                          <option value="#"style="color: #000;">1</option>
+                          <option value="#"style="color: #000;">2</option>
+                          <option value="#"style="color: #000;">3</option>
+                          <option value="#"style="color: #000;">4</option>
+                          <option value="#"style="color: #000;">5</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <a href="https://www.makemytrip.com/hotels/kurukshetra-hotels " type="submit" name="submit"
+                      id="submit" class="btn btn-primary btn-block" target="_blank"> find hotels</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div id="hotel" class="tab-pane fade">
+              <form method="post" class="colorlib-form">
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="booknow">
+                      <h2>Explore Now</h2>
+                      <span>Best Price Online</span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="date">from</label>
+                      <div class="form-field">
+                        <input type="text" id="location" class="form-control" placeholder="Search Location">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="date">To</label>
+                      <div class="form-field">
+                        <input type="text" id="location" class="form-control" placeholder="KURUKSHETRA JN - KKDE">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <label for="date">Date - DD/MM/YYYY</label>
+                      <div class="form-field">
+                        <!-- <i class="icon icon-calendar2"></i> -->
+                        <input type="text" id="date" class="form-control date" placeholder="Select Date">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <a href="https://www.irctc.co.in/nget/train-search" type="submit" name="submit" id="submit"
+                      class="btn btn-primary btn-block" target="_blank"> find trains</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div id="car" class="tab-pane fade">
+              <form method="post" class="colorlib-form">
+                <div class="row">
+                  <div class="col-md-3">
+                    <a href="https://www.rapido.bike/" type="submit" name="submit" id="submit"
+                      class="btn btn-primary btn-block" target="_blank">Rapido</a>
+                  </div>
+                  <div class="col-md-3">
+                    <a href="https://indrive.com/en/home" type="submit" name="submit" id="submit"
+                      class="btn btn-primary btn-block" target="_blank"> In drive</a>
+                  </div>
+                  <div class="col-md-3">
+                    <a href="https://auth.uber.com/v2/?breeze_local_zone=phx5&next_url=https%3A%2F%2Fm.uber.com%2F&state=BoHUDZW7LD1LBATRR1LoXKlZg0T-3MPJ37qX9-aEBYg%3D"
+                      type="submit" name="submit" id="submit" class="btn btn-primary btn-block" target="_blank">Uber</a>
+                  </div>
+                  <div class="col-md-3">
+                    <a href="https://www.olacabs.com/" type="submit" name="submit" id="submit"
+                      class="btn btn-primary btn-block" target="_blank">Ola</a>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="colorlib-services">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-md-3 animate-box text-center aside-stretch">
+          <div class="services">
+            <span class="icon">
+              <i class="flaticon-around"></i>
+            </span>
+            <h3>Amazing Travels</h3>
+            <p>The best travel story about a place that captures its essence and reveals the attraction of
+              amazing destination. </p>
+          </div>
+        </div>
+        <div class="col-md-3 animate-box text-center">
+          <div class="services">
+            <span class="icon">
+              <i class="flaticon-boat"></i>
+            </span>
+            <h3>Transportation</h3>
+            <p>Some beautiful paths can't be discovered without getting lost.You can't understand a city
+              without using its transportation system.</p>
+          </div>
+        </div>
+        <div class="col-md-3 animate-box text-center">
+          <div class="services">
+            <span class="icon">
+              <i class="flaticon-car"></i>
+            </span>
+            <h3>Plan Your Trip</h3>
+            <p>It is not the destination where you end up but the mishaps and memories you create along the
+              way.</p>
+          </div>
+        </div>
+        <div class="col-md-3 animate-box text-center">
+          <div class="services">
+            <span class="icon">
+              <i class="flaticon-postcard"></i>
+            </span>
+            <h3>Nice Support</h3>
+            <p>Your support network is the solid ground from which you can propel yourself upwards.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="colorlib-tour colorlib-light-grey">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
+          <h2>Popular Destinations</h2>
+          <p>You have a destination far beyond where you find yourself standing today.</p>
+        </div>
+      </div>
+    </div>
+    <div class="tour-wrap">
+      <a href="#" class="tour-entry animate-box">
+        <div class="tour-img" style="background-image: url(/tour1.jpeg);">
+        </div>
+        <span class="desc">
+          <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i
+                class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span> 500
+            Reviews</p>
+          <h2>Brahma Sarovar,Kurukshetra</h2>
+          <span class="city">Haryana</span>
+          <!--	<span class="price">$450</span> -->
+        </span>
+      </a>
+      <a href="#" class="tour-entry animate-box">
+        <div class="tour-img" style="background-image: url(/tour2.jpeg);">
+        </div>
+        <span class="desc">
+          <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i
+                class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span> 487
+            Reviews</p>
+          <h2>Bhisham Kund,Kurukshetra</h2>
+          <span class="city">Haryana</span>
+
+        </span>
+      </a>
+      <a href="#" class="tour-entry animate-box">
+        <div class="tour-img" style="background-image: url(/tour3.jpeg);">
+        </div>
+        <span class="desc">
+          <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i
+                class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span> 343
+            Reviews</p>
+          <h2>Jyotisar,Kurukshetra</h2>
+          <span class="city">Haryana</span>
+
+        </span>
+      </a>
+      <a href="#" class="tour-entry animate-box">
+        <div class="tour-img" style="background-image: url(/tour4.jpeg);">
+        </div>
+        <span class="desc">
+          <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i
+                class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span> 321
+            Reviews</p>
+          <h2>kus minar,Kurukshetra</h2>
+          <span class="city">Haryana</span>
+
+        </span>
+      </a>
+      <a href="#" class="tour-entry animate-box">
+        <div class="tour-img" style="background-image: url(/tour5.jpeg);">
+        </div>
+        <span class="desc">
+          <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i
+                class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span> 234
+            Reviews</p>
+          <h2>sheikh cheli tomb,Kurukshetra</h2>
+          <span class="city">Haryana</span>
+
+        </span>
+      </a>
+      <a href="#" class="tour-entry animate-box">
+        <div class="tour-img" style="background-image: url(/tour6.jpeg);">
+        </div>
+        <span class="desc">
+          <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i
+                class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span> 224
+            Reviews</p>
+          <h2>raja harh ka tila,Kurukshetra </h2>
+          <span class="city">Haryana</span>
+
+        </span>
+      </a>
+      <a href="#" class="tour-entry animate-box">
+        <div class="tour-img" style="background-image: url(/tour7.jpeg);">
+        </div>
+        <span class="desc">
+          <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i
+                class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span> 145
+            Reviews</p>
+          <h2>dharohar,Kurukshetra</h2>
+          <span class="city">Haryana</span>
+
+        </span>
+      </a>
+      <a href="#" class="tour-entry animate-box">
+        <div class="tour-img" style="background-image: url(/tour8.jpeg);">
+        </div>
+        <span class="desc">
+          <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i
+                class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span> 345
+            Reviews</p>
+          <h2>bhadrakali mandir,Kurukshetra</h2>
+          <span class="city">Haryana</span>
+
+        </span>
+      </a>
+    </div>
+  </div>
+
+
+  <div id="colorlib-blog">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
+          <h2>PARKS</h2>
+          <p>“When was the last time you spent a quiet moment just doing nothing – just sitting and looking at
+            the sea, or watching the wind blowing the tree limbs, or waves rippling on a pond, a flickering
+            candle or children playing in the park?”</p>
+        </div>
+      </div>
+      <div class="blog-flex">
+        <div class="f-entry-img" style="background-image: url(/park1.jpg);">
+        </div>
+        <div class="blog-entry aside-stretch-right">
+          <div class="row">
+            <div class="col-md-12 animate-box">
+              <a href="/blog " class="blog-post">
+                <span class="img" style="background-image: url(/park4.jpg);"></span>
+                <div class="desc">
+                  <span class="date">Feb 24, 2020</span>
+                  <h3>Nice park with a lot of green area and swings. Good for family picnic..</h3>
+
+                </div>
+              </a>
+            </div>
+            <div class="col-md-12 animate-box">
+              <a href="/blog " class="blog-post">
+                <span class="img" style="background-image: url(/park7.jpg);"></span>
+                <div class="desc">
+                  <span class="date">july 14, 2020</span>
+                  <h3>Visited here to enjoy musicals fountain show. Show was good.Swings for kids are
+                    also available.</h3>
+
+                </div>
+              </a>
+            </div>
+            <div class="col-md-12 animate-box">
+              <a href="/blog " class="blog-post">
+                <span class="img" style="background-image: url(/park1.jpg);"></span>
+                <div class="desc">
+                  <span class="date">may 23, 2020</span>
+                  <h3>Nice place for peace.Near this park you enjoy the golden history of india in the
+                    tomb of harsh chilly ka makbara is the tourist place</h3>
+
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="colorlib-intro" class="intro-img" style="background-image: url(images/cover.jpeg);"
+    data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 animate-box">
+          <div class="intro-desc">
+            <div class="text-salebox">
+              <div class="text-lefts">
+                <div class="sale-box">
+                  <div class="sale-box-top">
+                    <h2 class="number"></h2>
+                    <span class="sup-1"></span>
+                    <span class="sup-2"></span>
+                  </div>
+                  <h2 class="text-sale"></h2>
+                </div>
+              </div>
+              <div class="text-rights">
+
+
+                <!--			<h3 class="title">Just hurry up limited offer!</h3>  -->
+
+                <p>Dotted with mystical stories and folklores, Kurukshetra is one of the places of
+                  religious importance to the people following Hinduism. This is the land where
+                  Krishna preached Bhagawada Gita to Arjuna during the epic battle of Mahabharata.
+                  This town is the birthplace of the Hindu philosophies and doctrines and the
+                  composition of the Rig Veda. You will find mentions of this place in many books.
+                  This historical place has several places to visit.</p>
+                <p><a href="#" class="btn btn-primary">explore</a> <a href="#" class="btn btn-primary btn-outline">Read
+                    more</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 animate-box">
+          <div class="video-wrap">
+            <div class="video colorlib-video" style="background-image: url(/bg-8.jpg);">
+              <a href="https://youtu.be/YlqkDY0NqcQ" class="popup-video"><i class="icon-video"></i></a>
+              <div class="video-overlay"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="colorlib-hotel">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
+          <h2>Recommended Hotels</h2>
+          <p>We love to tell our successful far far away, behind the word mountains, far from the countries
+            Vokalia and Consonantia, there live the blind texts.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 animate-box">
+          <div class="owl-carousel">
+            <div class="item">
+              <div class="hotel-entry">
+                <a href="/hotels " class="hotel-img" style="background-image: url(/hotel2.jpeg);">
+
+                </a>
+                <div class="desc">
+                  <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i
+                        class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span>
+                    545 Reviews</p>
+                  <h3><a href="#">Hotel pearl marc</a></h3>
+                  <span class="place">Kurukshetra, Haryana</span>
+                  <p>Unassuming rooms with flat-screen TVs in a casual hotel offering a low-key
+                    restaurant.</p>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="hotel-entry">
+                <a href="/hotels " class="hotel-img" style="background-image: url(/hotel4.jpeg);">
+
+                </a>
+                <div class="desc">
+                  <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i
+                        class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span>
+                    545 Reviews</p>
+                  <h3><a href="#">Hotel mg grand</a></h3>
+                  <span class="place">Kurukshetra, Haryana</span>
+                  <p>Warm rooms in a straightforward property offering a restaurant, event space &
+                    parking.</p>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="hotel-entry">
+                <a href="/hotels " class="hotel-img" style="background-image: url(/hotel6.jpeg);">
+
+                </a>
+                <div class="desc">
+                  <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i
+                        class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span>
+                    545 Reviews</p>
+                  <h3><a href="#">Hotel kimaya</a></h3>
+                  <span class="place">Kurukshetra, Haryana</span>
+                  <p>Streamlined rooms in an understated hotel with a restaurant serving local &
+                    Chinese fare.</p>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="hotel-entry">
+                <a href="/hotels " class="hotel-img" style="background-image: url(/hotel8.jpeg);">
+
+                </a>
+                <div class="desc">
+                  <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i
+                        class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span>
+                    545 Reviews</p>
+                  <h3><a href="#">Hotel the celestial beats</a></h3>
+                  <span class="place">Kurukshetra, Haryana</span>
+                  <p>Warm rooms with flat-screens in a relaxed hotel offering a restaurant, a lobby
+                    lounge & Wi-Fi..</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="colorlib-testimony" class="colorlib-light-grey">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
+          <h2>Our Satisfied Guests says</h2>
+          <p>We love to tell our successful far far away, behind the word mountains, far from the countries
+            Vokalia and Consonantia, there live the blind texts.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 animate-box">
+          <div class="owl-carousel2">
+            <div class="item">
+              <div class="testimony text-center">
+                <span class="img-user" style="background-image: url(/first.jpg);"></span>
+                <span class="user">deepank</span>
+                <small>Radaur</small>
+                <blockquote>
+                  <p>One day however a small line of blind text by the name of Lorem Ipsum decided to
+                    leave for the far World of Grammar.</p>
+                </blockquote>
+              </div>
+            </div>
+            <div class="item">
+              <div class="testimony text-center">
+                <span class="img-user" style="background-image: url(/devanshu.jpg);"></span>
+                <span class="user">Devanshu bhatnagar</span>
+                <small>kurukshetra</small>
+                <blockquote>
+                  <p>" A small river named Duden flows by their place and supplies it with the
+                    necessary regelialia.</p>
+                </blockquote>
+              </div>
+            </div>
+            <div class="item">
+              <div class="testimony text-center">
+                <span class="img-user" style="background-image: url(/first.jpg);"></span>
+                <span class="user">Gomsi</span>
+                <small>Chandigarh</small>
+                <blockquote>
+                  <p>Alphabet Village and the subline of her own road, the Line Lane. Pityful a
+                    rethoric question ran over her cheek, then she continued her way.</p>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="colorlib-tour">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
+          <h2>Most Popular Travel Places</h2>
+          <p>We love to tell our successful far far away, behind the word mountains, far from the countries,
+            there live the blind texts.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="f-tour">
+            <div class="row row-pb-md">
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-6 animate-box">
+                    <a href="/tours " class="f-tour-img" style="background-image: url(/tour01.jpeg);">
+                      <div class="desc">
+
+                        <h3> Kalpana Chawla Taramandal </h3>
+                        <!--	<p class="price"><span>$120</span> <small>/ person</small></p> -->
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-md-6 animate-box">
+                    <a href="/tours " class="f-tour-img" style="background-image: url(/tour02.jpeg);">
+                      <div class="desc">
+                        <h3>Panorama</h3>
+
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-md-6 animate-box">
+                    <a href="/tours " class="f-tour-img" style="background-image: url(/tour03.jpeg);">
+                      <div class="desc">
+                        <h3>Shri Krishna museum</h3>
+
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-md-6 animate-box">
+                    <a href="/tours " class="f-tour-img" style="background-image: url(/tour04.jpeg);">
+                      <div class="desc">
+                        <h3>sthaneshwar Mahadev Temple</h3>
+
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 animate-box">
+                <div class="desc">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h3>Kurukshetra, Haryana</h3>
+                      <p>Located in the state of Haryana in India, Kuruskshetra is a famous
+                        pilgrimage site. It is also the land of the Bhagvad Gita. Kurukshetra is
+                        situated around 170 km north of Delhi and is also known by many names
+                        like Brahmakshetra (Land of Brahma), Uttaradevi, Brahmadevi and
+                        Dharamkshetra (Holy City). The place is known for the battle between the
+                        Kauravas and Pandavas in the Hindu epic Mahabharata. It is believed that
+                        this is the place where Krishna recited Bhagavad Gita to Arjuna. Gita
+                        Jayanti, which falls during the months of November and December,
+                        commemorates this event of preaching Gita to Arjuna. Sadhus and pilgrims
+                        from across the country and many foreigners visit Kurukshetra for Gita
+                        Jayanti.</p><br>
+                    </div>
+                    <div class="col-md-12">
+                      <h4>Best Tours Places</h4>
+                      <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                          <ul>
+                            <li><a href="#">Krishna museum</a></li>
+                            <li><a href="#">sannihit Sarovar</a></li>
+                            <li><a href="#">Panorama</a></li>
+                            <li><a href="#">sthaneshwar mahadev </a></li>
+                          </ul>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                          <ul>
+                            <li><a href="#">phalgu tirtha</a></li>
+                            <li><a href="#">dharohar museum</a></li>
+                            <li><a href="#">raja karan ka kila</a></li>
+                            <li><a href="#">lakshmi narayan temple</a></li>
+                          </ul>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                          <ul>
+                            <li><a href="#"> pipli zoo</a></li>
+                            <li><a href="#">rantuka yaksh tirth</a></li>
+                            <li><a href="#">op jindal park</a></li>
+                            <li><a href="#"> nishtha fish museum</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <p><a href="/tours " class="btn btn-primary">View All Places</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="f-tour">
+            <div class="row">
+              <div class="col-md-6 col-md-push-6">
+                <div class="row">
+                  <div class="col-md-6 animate-box">
+                    <a href="/tours " class="f-tour-img" style="background-image: url(/tour05.jpeg);">
+                      <div class="desc">
+                        <h3>Laxmi Narayan Temple</h3>
+
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-md-6 animate-box">
+                    <a href="/tours " class="f-tour-img" style="background-image: url(/tour06.jpeg);">
+                      <div class="desc">
+                        <h3>Phalgu Tirth </h3>
+
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-md-6 animate-box">
+                    <a href="/tours " class="f-tour-img" style="background-image: url(/tour7.jpeg);">
+                      <div class="desc">
+                        <h3>dharohar</h3>
+
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-md-6 animate-box">
+                    <a href="/tours " class="f-tour-img" style="background-image: url(/tour08.jpeg);">
+                      <div class="desc">
+                        <h3>Venkateshwar Mandir</h3>
+
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 animate-box col-md-pull-6 text-right">
+                <div class="desc">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h3>Kurukshetra, Haryana</h3>
+                      <p>Based on the excavations carried out in many parts of Kurukshetra it can
+                        be said that this place existed before the Harappan civilization.
+                        According to ancient records, Kurukshetra was the center of learning and
+                        Vedic civilization. It is said that the Hindu composition, philosophies
+                        and doctrine of the Rig Veda was created in Kurukshetra. Francois
+                        Bernier, the French traveler, during the reign of Shahjahan had
+                        mentioned Kurukshetra’s sacred tanks. Abul Fazal, Akbar’s court
+                        historian, also mentioned about the tanks of Kurukshetra in Akbarnama.
+                      </p><br>
+                    </div>
+                    <div class="col-md-12">
+                      <h4>Best Tours Places</h4>
+                      <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                          <ul>
+                            <li><a href="#">Krishna museum</a></li>
+                            <li><a href="#">sannihit Sarovar</a></li>
+                            <li><a href="#">Panorama</a></li>
+                            <li><a href="#">sthaneshwar mahadev temple</a></li>
+                          </ul>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                          <ul>
+                            <li><a href="#">phalgu tirtha</a></li>
+                            <li><a href="#">dharohar museum</a></li>
+                            <li><a href="#">raja karan ka kila</a></li>
+                            <li><a href="#">lakshmi narayan temple</a></li>
+                          </ul>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                          <ul>
+                            <li><a href="#">pipli zoo</a></li>
+                            <li><a href="#">rantuka yaksh trith</a></li>
+                            <li><a href="#">op jindal park </a></li>
+                            <li><a href="#">nishtha fish museum</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <p><a href="/tours " class="btn btn-primary">View All Places</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="colorlib-subscribe" style="background-image: url(images/img_bg_2.jpg);" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
+          <h2>Sign Up for a Newsletter</h2>
+          <p>Sign up for our mailing list to get latest updates and offers.</p>
+          <form class="form-inline qbstp-header-subscribe">
+            <div class="row">
+              <div class="col-md-12 col-md-offset-0">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="email" placeholder="Enter your email">
+                  <button class="btn btn-primary">Subscribe</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <%- include('partials/footer') %>
+  </div>
+
+  <div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+  </div>
+
+
+  <script src="/jquery.min.js"></script>
+  <script src="/jquery.easing.1.3.js"></script>
+  <script src="/bootstrap.min.js"></script>
+  <script src="/jquery.waypoints.min.js"></script>
+  <script src="/jquery.flexslider-min.js"></script>
+  <script src="/owl.carousel.min.js"></script>
+  <script src="/jquery.magnific-popup.min.js"></script>
+  <script src="/magnific-popup-options.js"></script>
+  <script src="/bootstrap-datepicker.js"></script>
+  <script src="/jquery.stellar.min.js"></script>
+  <script src="/main.js"></script>
+
+</body>
+
+</html>
