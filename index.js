@@ -1,4 +1,5 @@
 const express = require('express');
+const connect = require('./modals/database');
 const app = express();
 var session = require('express-session')
 app.use(function (req, res, next) {
@@ -45,5 +46,5 @@ app.get("/ticket", function (request, response) {
 app.get("/contact", function (request, response) {
     response.render("contact");
 });
-
+connect();
 app.listen(8080, () => console.log(`Example app listening on port 8080`))
