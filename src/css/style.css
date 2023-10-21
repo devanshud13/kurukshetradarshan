@@ -153,7 +153,7 @@ figure {
   position: relative;
   font-size: 15px;
   padding: 30px 12px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgb(0 0 0 / 70%);
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
@@ -665,7 +665,7 @@ figure {
   appearance: none;
   background: rgba(255, 255, 255, 0.03);
   border: 2px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.7);
+  color: black;
 }
 
 .colorlib-form .form-control:active,

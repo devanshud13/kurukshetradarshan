@@ -66,6 +66,15 @@ app.get("/ticket", function (request, response) {
 app.get("/contact", function (request, response) {
     response.render("contact", { username: request.session.username });
 });
+app.get("/hotelroom", function (request, response) {
+    response.render("hotelroom", { username: request.session.username });
+});
+app.get("/hotelbook", function (request, response) {
+    response.render("hotelbook", { username: request.session.username });
+});
+app.get("/reciept", function (request, response) {
+    response.render("reciept", { username: request.session.username });
+});
 app.get("/login", function (request, response) {
     const user = request.session.usernotfound;
     request.session.usernotfound = false;

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media (min-width: 1025px) {
+            .h-custom {
+                height: 100vh !important;
+            }
+        }
+        @media print {
+            #screen {
+                display: none;
+            }
+            #email {
+                display: none;
+            }
+        }
+    </style>
+        <!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+<!-- MDB -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" />
+<!-- MDB -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Receipt</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous">
+        <style>
+            #logo{
+                width: 20rem;
+            }
+            .card-head{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            h4{
+                font-size: 1.2rem;
+            }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-head">
+                        <img id="logo" src="/logo.png" alt="">
+                    </div>
+                    <div class="card-header">
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                            <!-- Bootstrap CSS -->
+                            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+                                integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+                                crossorigin="anonymous">
+                            <title>Receipt</title>
+                        </head>
+                        <body>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h3>Receipt</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <h4>Hotel Details</h4>
+                                                        <p>Hotel Name: XYZ Hotel</p>
+                                                        <p>Address: 123 Main Street, City, State, Zip Code</p>
+                                                        <p>Phone: 123-456-7890</p>
+                                                        <p>Email: info@xyzhotel.com</p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <h4>Booking Details</h4>
+                                                        <p>Booking ID: 123456789</p>
+                                                        <p>Check-in Date: 01/01/2022</p>
+                                                        <p>Check-out Date: 01/03/2022</p>
+                                                        <p>Number of Guests: 2</p>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <h4>User Details</h4>
+                                                        <p>Name: John Doe</p>
+                                                        <p>Email: johndoe@example.com</p>
+                                                        <p>Phone: 123-456-7890</p>
+                                                        <p>Address: 456 Main Street, City, State, Zip Code</p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <h4>Payment Details</h4>
+                                                        <p>Payment Method: Credit Card</p>
+                                                        <p>Card Number: **** **** **** 1234</p>
+                                                        <p>Expiration Date: 01/24</p>
+                                                        <p>CVV: ***</p>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h4>Payment Details</h4>
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col">Description</th>
+                                                                    <th scope="col">Price</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Total Amount Paid</td>
+                                                                    <td>$200.00</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Tax</td>
+                                                                    <td>$20.00</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Total</td>
+                                                                    <td>$220.00</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="hotel-receipt-instructions">
+                                                    <h4>Things to Remember</h4>
+                                                    <ul>
+                                                      <li>Check-in time is 3:00 PM and check-out time is 12:00 PM.</li>
+                                                      <li>Early check-in and late check-out may be available for an additional fee.</li>
+                                                      <li>A valid credit card is required at check-in for incidentals.</li>
+                                                      <li>A security deposit may also be required.</li>
+                                                      <li>No pets are allowed in the hotel.</li>
+                                                      <li>Smoking is not allowed in the hotel.</li>
+                                                      <li>Please do not disturb the staff after 11:00 PM.</li>
+                                                      <li>For assistance, please call the front desk at [phone number].</li>
+                                                      <li>Please keep this receipt for your records.</li>
+                                                    </ul>
+                                                  </div>
+                                                  
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <button class="btn btn-primary" id="screen" onclick="window.print()">Print</button>
+                                                        <button class="btn btn-success" id="email" onclick="alert('A copy of the receipt has been successfully sent to your email')">Email</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Bootstrap JS -->
+                            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                                crossorigin="anonymous"></script>
+                            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper"
+                                integrity="sha384-+9zJ7J4z6+J1Z1zvJc9J8J8zJ9K9f3JZv9h7zvJzvJzvJzvJzvJzvJzvJzvJzvJz"
+                                crossorigin="anonymous"></script>
+                            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                                integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+                                crossorigin="anonymous"></script>
+                        </body>
+                        </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,106 +8,136 @@
     <link rel="stylesheet" href="style.css">
     <title>QR CODE GENERATOR</title>
     <link rel="icon" type="image/x-icon" href="/kuk/logo design.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
-        *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background: rgba(49, 138, 115, 0.336);
-}
-.wrapper
-{
-    background: #fff;
-    height: 320px;
-    max-width: 410px;
-    padding: 16px 25px;
-    border-radius: 7px;
-    transition: height 0.2s ease;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
 
-.wrapper.active
-{
-    
-    height: 640px;
-    
-}
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh;
+            /* background: rgba(49, 138, 115, 0.336); */
+            background-color: #000;
+        }
 
-header h1{
-    font-size: 21px;
-    font-weight: 500;
-}
+        .wrapper {
+            background: #fff;
+            height: 320px;
+            max-width: 410px;
+            padding: 16px 25px;
+            border-radius: 7px;
+            transition: height 0.2s ease;
+        }
 
-header p{
-    margin-top: 5px;
-    color: #474747;
-    font-size: 16px;
-}
+        .wrapper.active {
 
-.wrapper .form{
-    margin: 20px 0 30px;
-}
+            height: 640px;
 
-.form :where(input, button){
-    width: 100%;
-    height: 55px;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-}
+        }
 
-.form input{
-    font-size: 18px;
-    padding: 0 17px ;
-    border:1px solid #999 ;
-}
-.form button{
-    font-size: 17px;
-    color: #fff;
-    margin-top: 20px;
-    background: #474747;
-    cursor: pointer;
-}
+        header h1 {
+            font-size: 21px;
+            font-weight: 500;
+        }
 
-.wrapper .qr-code{
-    display: flex;
-    opacity: 0;
-    pointer-events: none;
-    padding: 10px 1px 30px 10px;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-.wrapper .qr-code img{
-   width: 200px;
-   height: auto;
-}
+        header p {
+            margin-top: 5px;
+            color: #474747;
+            font-size: 16px;
+        }
 
-.wrapper.active .qr-code
-{
-    opacity: 1;
-    pointer-events: auto;
-    transition: opacity 0.5s 0.5s ease;
-}
-.qr-code{
-    display: flex;
-    flex-direction: column;
-}
+        .wrapper .form {
+            margin: 20px 0 30px;
+        }
+
+        .form :where(input, button) {
+            width: 100%;
+            height: 55px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        .form input {
+            font-size: 18px;
+            padding: 0 17px;
+            border: 1px solid #999;
+        }
+
+        .form button {
+            font-size: 17px;
+            color: #fff;
+            margin-top: 20px;
+            background: #474747;
+            cursor: pointer;
+        }
+
+        .wrapper .qr-code {
+            display: flex;
+            opacity: 0;
+            pointer-events: none;
+            padding: 10px 1px 30px 10px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .wrapper .qr-code img {
+            width: 200px;
+            height: auto;
+        }
+
+        .wrapper.active .qr-code {
+            opacity: 1;
+            pointer-events: auto;
+            transition: opacity 0.5s 0.5s ease;
+        }
+
+        .qr-code {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media print {
+            .print-only {
+                display: none;
+            }
+        }
+
+        .ticket-instructions {
+            padding: 10px;
+            color: #000;
+            margin: 20px;
+        }
+
+        .ticket-instructions h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .ticket-instructions p {
+            font-size: 12px;
+            margin: 5px 0;
+        }
     </style>
     <script>
 
     </script>
 </head>
+
 <body>
-    
+    <div class="head">
+        <h1 class="head">KURUKSHETRA DARSHAN</h1><br><br>
+    </div>
     <div class="wrapper">
         <header>
             <h1>Online Ticket Portal</h1>
@@ -114,57 +145,76 @@ header p{
         </header>
         <div class="form">
             <!-- <div class="col-md-3"> -->
-                <div class="form-group mb-2">
-                  <label for="guests">Select Your Place</label>
-                  <div class="form-field">
+            <div class="form-group mb-2">
+                <label class="print-only" for="guests">Select Your Place</label>
+                <div class="form-field">
                     <!-- <i class="icon icon-arrow-down3"></i> -->
                     <select name="people people-primary" id="people" class="form-control">
-                      <option value="#"style="color: #000;">Pipli Water Park</option>
-                      <option value="#"style="color: #000;">Drohar</option>
-                      <option value="#"style="color: #000;">Kalpana chawala planterium</option>
-                      <option value="#"style="color: #000;">shrri krishna mueseum</option>
-                      <option value="#"style="color: #000;">sheikh chehli tomb</option>
+                        <option value="#" style="color: #000;">Pipli Water Park</option>
+                        <option value="#" style="color: #000;">Drohar</option>
+                        <option value="#" style="color: #000;">Kalpana chawala planterium</option>
+                        <option value="#" style="color: #000;">shrri krishna mueseum</option>
+                        <option value="#" style="color: #000;">sheikh chehli tomb</option>
                     </select>
-                  </div>
                 </div>
-              <!-- </div> -->
+            </div>
+            <!-- </div> -->
             <input id="inp" type="text" placeholder="Enter your Phone Number">
-            <button>Generate Ticket</button>
+            <button class="print-only">Generate Ticket</button>
         </div>
         <div class="qr-code">
             <p id="tkt">****</p><br>
             <img src="" alt="">
         </div>
     </div>
-<script>
-    const wrapper = document.querySelector(".wrapper"),//gets the wrapper css and stores it in the wrapper variable
-qrInput=wrapper.querySelector(".form input"),//gets the form input css and stores it in the qrInput variable
-qrImg=wrapper.querySelector(".qr-code img"),//gets the qr-code img and stores it in the qrImg variable
-generateBtn=wrapper.querySelector(".form button");//gets the form button css and stores it in the henerateBtn variable
+    <div class="ticket-instructions">
+        <h2>Tourist Place Ticket Instructions</h2>
+        <p><strong>Opening Hours:</strong> 9:00 AM - 6:00 PM</p>
+        <p><strong>Ticket Validity:</strong> Valid for 24hrs only</p>
+        <p><strong>Entry Rules:</strong> No outside food or beverages allowed. Dress code: Casual.</p>
+        <p><strong>Emergency Contact:</strong> In case of emergencies, call +1-555-555-5555.</p>
+        <p><strong>Lost or Stolen Tickets:</strong> Lost or stolen tickets can be reissued with proper identification.
+        </p>
+        <p><strong>Refund Policy:</strong> Tickets are non-refundable, except in case of event cancellation.</p>
+        <p><strong>Contact Information:</strong> For inquiries, call +1-123-456-7890 or visit <a style="color: #000;"
+                href="https://www.exampletouristplace.com">www.exampletouristplace.com</a>.</p>
+        <p><strong>Terms and Conditions:</strong> By using this ticket, you agree to the terms and conditions provided
+            on our website.</p>
+        <p><strong>Enjoy Your Visit:</strong> We wish you a fantastic and memorable experience during your visit!</p>
+    </div>
+    <script>
+        const wrapper = document.querySelector(".wrapper"),//gets the wrapper css and stores it in the wrapper variable
+            qrInput = wrapper.querySelector(".form input"),//gets the form input css and stores it in the qrInput variable
+            qrImg = wrapper.querySelector(".qr-code img"),//gets the qr-code img and stores it in the qrImg variable
+            generateBtn = wrapper.querySelector(".form button");//gets the form button css and stores it in the henerateBtn variable
 
-/* This block of code executes when the user clicks on the generate button after entering a value(i.e a valid url or even a text) */
-generateBtn.addEventListener("click",()=>{
+        /* This block of code executes when the user clicks on the generate button after entering a value(i.e a valid url or even a text) */
+        generateBtn.addEventListener("click", () => {
 
-   let nb= Math.floor(Math.random() * 1000000);
-    let qrValue = nb;
-    if(!qrInput.value) return;
-    document.getElementById("tkt").innerText=nb;
-    generateBtn.innerText= "Generating Ticket....";
-    qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=170x170&data=${qrValue}`;
-    qrImg.addEventListener("load", ()=>{
-        wrapper.classList.add("active");
-        generateBtn.innerText= "Generate Ticket";
-    })
-   
-});
+            let nb = Math.floor(Math.random() * 1000000);
+            let qrValue = nb;
+            if (!qrInput.value) return;
+            document.getElementById("tkt").innerText = nb;
+            generateBtn.innerText = "Generating Ticket....";
+            qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=170x170&data=${qrValue}`;
+            qrImg.addEventListener("load", () => {
+                wrapper.classList.add("active");
+                generateBtn.innerText = "Print Ticket";
+                generateBtn.onclick = () => { window.print() };
+            })
 
-qrInput.addEventListener("keyup", ()=>{
-    if (!qrInput.value) {
-        wrapper.classList.remove("active");
-    }
-})
-</script>
+        });
+
+        qrInput.addEventListener("keyup", () => {
+            if (!qrInput.value) {
+                wrapper.classList.remove("active");
+            }
+        })
+    </script>
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
