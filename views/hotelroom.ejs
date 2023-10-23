@@ -43,15 +43,18 @@
         }
 
     </style>
+    <script>
+    </script>
 </head>
 
 <body>
     <div class="colorlib-loader"></div>
-
+<p id="hotelId"><%=id%></p>
     <div id="page">
         <%- include('partials/header') %>
-        <div id="colorlib-contact">
-            <div class="container">
+        <div id="colorlib-contact" >
+            <div id="hotel-container"></div>
+            <!-- <div class="container">
                 <div class="row">
                     <div class="col-md-12 animate-box">
                         <h3>Saffron hotel</h3>
@@ -91,7 +94,7 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 animate-box">
                         <h3>Hotel Saffron</h3>
-                        <!-- <form method="post" class="colorlib-form"> -->
+                        <form method="post" class="colorlib-form">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -123,15 +126,16 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group text-center">
-                                        <!-- <input type="submit" id="book-btn" value="Book Now" class="btn btn-primary"> -->
+                                         <input type="submit" id="book-btn" value="Book Now" class="btn btn-primary">
                                     </div>
                                     <a href="/hotelbook"><button  class="btn btn-primary"> Book Now</button></a>
                                 </div>
                             </div>
-                        <!-- </form> -->
+                        </form>
                     </div>
                 </div>
 
+            </div> -->
             </div>
         </div>
 
@@ -187,7 +191,7 @@
 
     <!-- Main -->
     <script src="/main.js"></script>
-
+    <script src="/showHotel.js"></script>
 </body>
 
 </html>

@@ -3,9 +3,14 @@ const signup = require("./utils/authentication/signup");
 const login = require("./utils/authentication/login");
 const logout = require("./utils/authentication/logout");
 const connect = require('./modals/database');
+const hotels = require("./utils/admin/hotels");
+const getHotels = require("./utils/admin/getHotels");
 const User = require("./modals/user");
 const app = express();
 var session = require('express-session')
+const multer = require('multer');
+const showHotels = require('./utils/admin/showHotels');
+const upload = multer({ dest: 'uploads/' })
 app.use(function (req, res, next) {
     if (!req.user)
         res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
@@ -18,6 +23,7 @@ app.use(session({
     resave: true,
     saveUninitialized: true,
 }))
+app.use(upload.array('hotelImage1', 4));
 app.use(express.static("src"));
 app.use(express.static("src/images"));
 app.use(express.static("src/css"));
@@ -25,6 +31,7 @@ app.use(express.static("src/js"));
 app.use(express.static("src/fonts"));
 app.use(express.static("src/components"));
 app.use(express.static("src/scss"));
+app.use(express.static("uploads"));
 app.set("view engine", "ejs");
 app.get('/', function(request,response){
     const user = request.session.username;
@@ -67,13 +74,17 @@ app.get("/contact", function (request, response) {
     response.render("contact", { username: request.session.username });
 });
 app.get("/hotelroom", function (request, response) {
-    response.render("hotelroom", { username: request.session.username });
+    request.session.id = request.query.id;
+    response.render("hotelroom", { username: request.session.username, id: request.query.id });
 });
 app.get("/hotelbook", function (request, response) {
     response.render("hotelbook", { username: request.session.username });
 });
 app.get("/reciept", function (request, response) {
     response.render("reciept", { username: request.session.username });
+});
+app.get("/admin",function (request, response) {
+    response.render("admin", { username: request.session.username });
 });
 app.get("/login", function (request, response) {
     const user = request.session.usernotfound;
@@ -97,5 +108,8 @@ app.get("/signup", function (request, response) {
 app.post("/signup", signup);
 app.post("/login", login);
 app.get("/logout", logout);
+app.post("/addHotel",hotels);
+app.get("/getHotels",getHotels);
+app.get("/showHotel",showHotels)
 connect();
 app.listen(8080, () => console.log(`Example app listening on port 8080`))
