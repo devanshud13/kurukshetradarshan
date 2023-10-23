@@ -89,7 +89,7 @@ fetch("/showHotel")
                             <div class="form-group text-center">
                                 <!-- <input type="submit" id="book-btn" value="Book Now" class="btn btn-primary"> -->
                             </div>
-                            <a href="/hotelbook"><button  class="btn btn-primary"> Book Now</button></a>
+                            <a href="/hotelbook?id=${hotelId}"><button  class="btn btn-primary"> Book Now</button></a>
                         </div>
                     </div>
                 <!-- </form> -->

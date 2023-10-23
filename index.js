@@ -5,6 +5,7 @@ const logout = require("./utils/authentication/logout");
 const connect = require('./modals/database');
 const hotels = require("./utils/admin/hotels");
 const getHotels = require("./utils/admin/getHotels");
+const bookHotels = require("./utils/admin/showHotels");
 const User = require("./modals/user");
 const app = express();
 var session = require('express-session')
@@ -74,11 +75,10 @@ app.get("/contact", function (request, response) {
     response.render("contact", { username: request.session.username });
 });
 app.get("/hotelroom", function (request, response) {
-    request.session.id = request.query.id;
     response.render("hotelroom", { username: request.session.username, id: request.query.id });
 });
 app.get("/hotelbook", function (request, response) {
-    response.render("hotelbook", { username: request.session.username });
+    response.render("hotelbook", { username: request.session.username, id: request.query.id });
 });
 app.get("/reciept", function (request, response) {
     response.render("reciept", { username: request.session.username });
@@ -110,6 +110,7 @@ app.post("/login", login);
 app.get("/logout", logout);
 app.post("/addHotel",hotels);
 app.get("/getHotels",getHotels);
-app.get("/showHotel",showHotels)
+app.get("/showHotel",showHotels);
+app.get("/bookHotel",bookHotels);
 connect();
 app.listen(8080, () => console.log(`Example app listening on port 8080`))
