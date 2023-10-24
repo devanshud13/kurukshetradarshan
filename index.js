@@ -6,11 +6,14 @@ const connect = require('./modals/database');
 const hotels = require("./utils/admin/hotels");
 const getHotels = require("./utils/admin/getHotels");
 const bookHotels = require("./utils/admin/showHotels");
+const reciepts = require("./utils/admin/showHotels");
 const User = require("./modals/user");
+const Hotel = require("./modals/hotel");
 const app = express();
 var session = require('express-session')
 const multer = require('multer');
 const showHotels = require('./utils/admin/showHotels');
+const confirmation = require('./utils/email/confirmation');
 const upload = multer({ dest: 'uploads/' })
 app.use(function (req, res, next) {
     if (!req.user)
@@ -77,9 +80,28 @@ app.get("/contact", function (request, response) {
 app.get("/hotelroom", function (request, response) {
     response.render("hotelroom", { username: request.session.username, id: request.query.id });
 });
-app.get("/hotelbook", function (request, response) {
-    response.render("hotelbook", { username: request.session.username, id: request.query.id });
+// app.get("/hotelbook", function (request, response) {
+//     response.render("hotelbook", { username: request.session.username, id: request.query.id });
+// });
+app.post("/hotelbook", function (request, response) {
+    const hotelRoom = request.body.hotelRoom;
+    const hotelAdults = request.body.hotelAdults;
+    const dateFrom = request.body.dateFrom;
+    const dateTo = request.body.dateTo;
+
+    response.render("hotelbook", { username: request.session.username, id: request.query.id, hotelRoom: hotelRoom, hotelAdults: hotelAdults, dateFrom: dateFrom, dateTo: dateTo });
 });
+app.post("/reciepts", function (request, response) {
+    const userName = request.body.userName;
+    const userEmail = request.body.userEmail;
+    const userPhone = request.body.userPhone;
+    const hotelRoom = request.query.hotelRoom;
+    const hotelAdults = request.query.hotelAdults;
+    const dateFrom = request.query.dateFrom;
+    const dateTo = request.query.dateTo;
+    const hotelPrice = request.query.hotelPrice;
+    response.render("reciept", { username: request.session.username, id: request.query.id, hotelRoom: hotelRoom, hotelAdults: hotelAdults, dateFrom: dateFrom, dateTo: dateTo, userName: userName, userEmail: userEmail, userPhone: userPhone, hotelPrice: hotelPrice })
+})
 app.get("/reciept", function (request, response) {
     response.render("reciept", { username: request.session.username });
 });
@@ -96,6 +118,48 @@ app.get("/login", function (request, response) {
         response.render('login', { username: request.session.username, usernotfound: user });
     }
 })
+app.post("/confirmation", function (request, response) {
+    const userEmail = request.query.userEmail;
+    const dateFrom = request.query.dateFrom;
+    const dateTo = request.query.dateTo;
+    const hotelAdults = request.query.hotelAdults;
+    const hotelPrice = request.query.hotelPrice;
+    const hotelName = request.query.hotelName;
+    const hotelLocation = request.query.hotelLocation;
+    const subject = "Booking Confirmation";
+
+    const html = `
+    <h1>KURUKSHETRA DARSHAN </h1>
+    <h1>Thank you for booking with us</h1>
+    <p>Booking Details</p>
+    <p>Hotel Name: ${hotelName}</p>
+    <p>Address: ${hotelLocation}</p>
+    <p>Check-in Date: ${dateFrom}</p>
+    <p>Check-out Date: ${dateTo}</p>
+    <p>Number of Guests: ${hotelAdults} Adults</p>
+    <p>Total Amount:₹ ${hotelAdults*hotelPrice}</p>
+    <h4>Things to Remember</h4>
+    <ul>
+        <li>Check-in time is 3:00 PM and check-out time is 12:00 PM.
+        </li>
+        <li>Early check-in and late check-out may be available for an
+            additional fee.</li>
+        <li>A valid credit card is required at check-in for incidentals.
+        </li>
+        <li>A security deposit may also be required.</li>
+        <li>No pets are allowed in the hotel.</li>
+        <li>Smoking is not allowed in the hotel.</li>
+        <li>Please do not disturb the staff after 11:00 PM.</li>
+        <li>For assistance, please call the front desk at [phone
+            number].</li>
+        <li>Please keep this receipt for your records.</li>
+    </ul>
+    
+    `
+    confirmation(subject,userEmail,html);
+    // response.render("reciept", { username: request.session.username, id: null, hotelRoom: null, hotelAdults: null, dateFrom: null, dateTo: null, userName: null, userEmail: null, userPhone: null, hotelPrice: null })
+    response.render("hotels", { username: request.session.username });
+});
 app.get("/signup", function (request, response) {
     const Email = request.session.email;
     request.session.email = null;
@@ -112,5 +176,6 @@ app.post("/addHotel",hotels);
 app.get("/getHotels",getHotels);
 app.get("/showHotel",showHotels);
 app.get("/bookHotel",bookHotels);
+app.get("/reciepts",reciepts);
 connect();
 app.listen(8080, () => console.log(`Example app listening on port 8080`))
