@@ -172,7 +172,6 @@ app.post("/confirmation", function (request, response) {
     // response.render("reciept", { username: request.session.username, id: null, hotelRoom: null, hotelAdults: null, dateFrom: null, dateTo: null, userName: null, userEmail: null, userPhone: null, hotelPrice: null })
     response.render("hotels", { username: request.session.username });
 });
-app.post("/createOrder", paymentController.createOrder);
 app.get("/signup", function (request, response) {
     const Email = request.session.email;
     request.session.email = null;
@@ -190,5 +189,6 @@ app.get("/getHotels",getHotels);
 app.get("/showHotel",showHotels);
 app.get("/bookHotel",bookHotels);
 app.get("/reciepts",reciepts);
+app.post("/createOrder", paymentController.createOrder);
 connect();
 app.listen(8080, () => console.log(`Example app listening on port 8080`))
