@@ -151,7 +151,6 @@ fetch('/createOrder', {
               "currency": "INR",
               "name": hotelName,
               "description": "hotelDescription" ,
-            //   "image": "https://dummyimage.com/600x400/000/fff",
               "image": hotelImage1,
               "order_id": "" + res.order_id + "",
               "handler": function (response) {
