@@ -26,23 +26,23 @@ fetch("/showHotel")
                 <h3>${hotelName}</h3>
                 <div class="row">
                 <div class="col-md-3 col-sm-3 col-xs-6">
-                    <a href="/hotel-1.jpg" class="thumbnail image-popup">
-                        <img src="/hotel-1.jpg" alt="Image" class="img-responsive">
+                    <a href="/${hotelImage1}" class="thumbnail image-popup">
+                        <img src="/${hotelImage1}" alt="Image" class="img-responsive">
                     </a>
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-6">
-                    <a href="/hotel-2.jpg" class="thumbnail image-popup">
-                        <img src="/hotel-2.jpg" alt="Image" class="img-responsive">
+                    <a href="/${hotelImage2}" class="thumbnail image-popup">
+                        <img src="/${hotelImage2}" alt="Image" class="img-responsive">
                     </a>
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-6">
-                    <a href="/hotel-3.jpg" class="thumbnail image-popup">
-                        <img src="/hotel-3.jpg" alt="Image" class="img-responsive">
+                    <a href="/${hotelImage3}" class="thumbnail image-popup">
+                        <img src="/${hotelImage3}" alt="Image" class="img-responsive">
                     </a>
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-6">
-                    <a href="/hotel-5.jpg" class="thumbnail image-popup">
-                        <img src="/hotel-5.jpg" alt="Image" class="img-responsive">
+                    <a href="/${hotelImage4}" class="thumbnail image-popup">
+                        <img src="/${hotelImage4}" alt="Image" class="img-responsive">
                     </a>
                 </div>
             </div>

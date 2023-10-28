@@ -14,7 +14,11 @@ var session = require('express-session')
 const multer = require('multer');
 const showHotels = require('./utils/admin/showHotels');
 const confirmation = require('./utils/email/confirmation');
+const paymentController = require('./utils/payment/paymentController');
 const upload = multer({ dest: 'uploads/' })
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended:false }));
 app.use(function (req, res, next) {
     if (!req.user)
         res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
@@ -103,7 +107,15 @@ app.post("/reciepts", function (request, response) {
     response.render("reciept", { username: request.session.username, id: request.query.id, hotelRoom: hotelRoom, hotelAdults: hotelAdults, dateFrom: dateFrom, dateTo: dateTo, userName: userName, userEmail: userEmail, userPhone: userPhone, hotelPrice: hotelPrice })
 })
 app.get("/reciept", function (request, response) {
-    response.render("reciept", { username: request.session.username });
+    const userName = request.query.userName;
+    const userEmail = request.query.userEmail;
+    const userPhone = request.query.userPhone;
+    const hotelRoom = request.query.hotelRoom;
+    const hotelAdults = request.query.hotelAdults;
+    const dateFrom = request.query.dateFrom;
+    const dateTo = request.query.dateTo;
+    const hotelPrice = request.query.hotelPrice;
+    response.render("reciept", { username: request.session.username, id: request.query.id, hotelRoom: hotelRoom, hotelAdults: hotelAdults, dateFrom: dateFrom, dateTo: dateTo, userName: userName, userEmail: userEmail, userPhone: userPhone, hotelPrice: hotelPrice })
 });
 app.get("/admin",function (request, response) {
     response.render("admin", { username: request.session.username });
@@ -160,6 +172,7 @@ app.post("/confirmation", function (request, response) {
     // response.render("reciept", { username: request.session.username, id: null, hotelRoom: null, hotelAdults: null, dateFrom: null, dateTo: null, userName: null, userEmail: null, userPhone: null, hotelPrice: null })
     response.render("hotels", { username: request.session.username });
 });
+app.post("/createOrder", paymentController.createOrder);
 app.get("/signup", function (request, response) {
     const Email = request.session.email;
     request.session.email = null;

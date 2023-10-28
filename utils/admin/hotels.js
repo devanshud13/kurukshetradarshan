@@ -1,5 +1,4 @@
 const Hotel = require("../../modals/hotel");
-console.log("addhotel");
 function addhotel (request,response){
     const hotelName = request.body.hotelName;
     const hotelLocation = request.body.hotelLocation;

@@ -15,7 +15,7 @@ fetch("/bookHotel")
                 const hotelPrice = hotel.hotelPrice;
                 const hotelImage1 = hotel.hotelImage1;
                 const hotelImage2 = hotel.hotelImage2;
-                const hotelImage3 = hotel.hotelImage3;
+                let  hotelImage3 = hotel.hotelImage3;
                 const hotelImage4 = hotel.hotelImage4;
                 const hotelDescription = hotel.hotelDescription;
                 const hotelRoom = hotel.hotelRoom;
@@ -69,7 +69,7 @@ fetch("/bookHotel")
         <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
             class="img-fluid rounded-3" style="width: 45px;" alt="Avatar">
     </div>
-    <form class="mt-4" method="POST" action="/reciepts?id=${hotelId}&hotelRoom=${hotelRooms}&hotelAdults=${hotelAdults}&hotelPrice=${hotelPrice}&dateFrom=${dateFrom}&dateTo=${dateTo}">
+    <!-- <form class="mt-4" method="POST" id="post-form" action="/reciepts?id=${hotelId}&hotelRoom=${hotelRooms}&hotelAdults=${hotelAdults}&hotelPrice=${hotelPrice}&dateFrom=${dateFrom}&dateTo=${dateTo}">-->
         <div class="form-outline form-white mb-4">
             <input type="text" id="typeName" class="form-control form-control-lg"
                 siez="17" placeholder="Full Name" name="userName" required />
@@ -77,12 +77,12 @@ fetch("/bookHotel")
         </div>
 
         <div class="form-outline form-white mb-4">
-            <input type="text" id="typeText" class="form-control form-control-lg"
+            <input type="text" id="typeEmail" class="form-control form-control-lg"
                 siez="17" placeholder="XYZ@gmail.xom" name="userEmail" required />
             <label class="form-label" for="typeText">Email</label>
         </div>
         <div class="form-outline form-white mb-4">
-            <input type="text" id="typeText" class="form-control form-control-lg"
+            <input type="text" id="typePhone" class="form-control form-control-lg"
                 siez="17" placeholder="+91 12324 15555" name="userPhone" required  />
             <label class="form-label" for="typeText">Mobile Number</label>
         </div>
@@ -108,13 +108,13 @@ fetch("/bookHotel")
     </div>
     <p>Hurray! you save ₹ ${hotelRooms*Math.floor(hotelPrice / 10)} in your Hotel</p>
 
-    <button  class="btn btn-info btn-block btn-lg" type="submit">
-        <div class="d-flex justify-content-between">
-            <span>₹ ${hotelRooms*(hotelPrice - Math.floor(hotelPrice / 10))}</span>
-<span type="submit">Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
-        </div>
-    </button>
-    </form>
+    <button class="btn btn-info btn-block btn-lg" type="submit" onclick="handlePayWithInputs('${hotelId}', ${hotelRooms}, ${hotelAdults}, ${hotelPrice}, '${dateFrom}', '${dateTo}','${hotelName}','${hotelImage1}')">
+    <div class="d-flex justify-content-between">
+      <span>₹ ${hotelRooms*(hotelPrice - Math.floor(hotelPrice / 10))}</span>
+      <span >Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+    </div>
+  </button>
+    <!-- </form> -->
 
 </div>
     `
@@ -122,3 +122,89 @@ fetch("/bookHotel")
             }
         })
     });
+
+    function handlePayWithInputs(hotelId,hotelRooms,hotelAdults,hotelPrice,dateFrom,dateTo,hotelName,hotelImage1) {
+        const typeName = document.getElementById('typeName').value;
+        const typeEmail = document.getElementById('typeEmail').value;
+        const typePhone = document.getElementById('typePhone').value;
+        console.log(hotelImage1)
+        handlepay(hotelId,hotelRooms,hotelAdults,hotelPrice,dateFrom,dateTo, typeName, typeEmail, typePhone,hotelName,hotelImage1);
+      }
+ function handlepay(hotelId,hotelRooms,hotelAdults,hotelPrice,dateFrom,dateTo,userName,userEmail,userPhone,hotelName,hotelImage1){
+    const formData = new FormData();
+formData.append('hotelId', '8f9a94e3179ad7c910e733eb5da2e318');
+formData.append('fullName', 'John Doe');
+formData.append('email', 'johndoe@example.com');
+formData.append('phone', '1234567890');
+fetch('/createOrder', {
+        method: 'POST',
+        body: formData
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (res) {
+          if (res.success) {
+            var options = {
+              "key": "" + res.key_id + "",
+              "amount": "100",
+              "currency": "INR",
+              "name": hotelName,
+              "description": "hotelDescription" ,
+            //   "image": "https://dummyimage.com/600x400/000/fff",
+              "image": hotelImage1,
+              "order_id": "" + res.order_id + "",
+              "handler": function (response) {
+                handlereciept(hotelId, hotelRooms, hotelAdults, hotelPrice, dateFrom, dateTo,userName,userEmail,userPhone)
+              },
+              "prefill": {
+                "contact": userPhone,
+                "name": userName,
+                "email": userEmail
+              },
+              "notes": {
+                "description": "" + res.description + ""
+              },
+              "theme": {
+                "color": "#2300a3"
+              }
+            };
+            var razorpayObject = new Razorpay(options);
+            razorpayObject.on('payment.failed', function (response) {
+              alert("Payment Failed");
+            });
+            razorpayObject.open();
+          }
+          else {
+            alert(res.msg);
+          }
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    }
+
+    function handlereciept(hotelId, hotelRooms, hotelAdults, hotelPrice, dateFrom, dateTo,userName,userEmail,userPhone){
+        const url = `/reciepts?id=${hotelId}&hotelRoom=${hotelRooms}&hotelAdults=${hotelAdults}&hotelPrice=${hotelPrice}&dateFrom=${dateFrom}&dateTo=${dateTo}&userName=${userName}&userEmail=${userEmail}&userPhone=${userPhone}`;
+
+        fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            // Add any additional data that you want to send in the request body
+          })
+        })
+        .then(response => {
+          if (response.ok) {
+            const url = `/reciept?id=${hotelId}&hotelRoom=${hotelRooms}&hotelAdults=${hotelAdults}&hotelPrice=${hotelPrice}&dateFrom=${dateFrom}&dateTo=${dateTo}&userName=${userName}&userEmail=${userEmail}&userPhone=${userPhone}`;
+            window.location.href = url;
+          } else {
+            throw new Error('Network response was not ok');
+          }
+        })
+        .catch(error => {
+          console.error('There was a problem with the fetch operation:', error);
+        });
+    }
