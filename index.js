@@ -138,6 +138,7 @@ app.post("/confirmation", function (request, response) {
     const hotelPrice = request.query.hotelPrice;
     const hotelName = request.query.hotelName;
     const hotelLocation = request.query.hotelLocation;
+    const hotelRooms = request.query.hotelRooms;
     const subject = "Booking Confirmation";
 
     const html = `
@@ -149,7 +150,7 @@ app.post("/confirmation", function (request, response) {
     <p>Check-in Date: ${dateFrom}</p>
     <p>Check-out Date: ${dateTo}</p>
     <p>Number of Guests: ${hotelAdults} Adults</p>
-    <p>Total Amount:₹ ${hotelAdults*hotelPrice}</p>
+    <p>Total Amount:₹ ${hotelRooms*(hotelPrice - Math.floor(hotelPrice/10))}</p>
     <h4>Things to Remember</h4>
     <ul>
         <li>Check-in time is 3:00 PM and check-out time is 12:00 PM.

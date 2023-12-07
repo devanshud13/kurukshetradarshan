@@ -82,15 +82,15 @@ fetch("/reciepts")
                                 <tbody>
                                     <tr>
                                         <td>Total Amount Paid</td>
-                                        <td>$${hotelRooms*hotelPrice}</td>
+                                        <td>₹ ${hotelRooms*hotelPrice}</td>
                                     </tr>
                                     <tr>
                                         <td>Tax</td>
-                                        <td>$${hotelRooms*(Math.floor(hotelPrice/10))}</td>
+                                        <td>₹ ${hotelRooms*(Math.floor(hotelPrice/10))}</td>
                                     </tr>
                                     <tr>
                                         <td>Total</td>
-                                        <td>$${hotelRooms*(hotelPrice - Math.floor(hotelPrice/10))}</td>
+                                        <td>₹ ${hotelRooms*(hotelPrice - Math.floor(hotelPrice/10))}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -119,7 +119,7 @@ fetch("/reciepts")
                         <div class="col-md-12" id="email-btn">
                             <button class="btn btn-primary" id="screen"
                                 onclick="window.print()">Print</button>
-                                <form method="POST" action="/confirmation?userEmail=${userEmail}&hotelName=${hotelName}&hotelLocation=${hotelLocation}&hotelRoom=${hotelRooms}&hotelAdults=${hotelAdults}&hotelPrice=${hotelPrice}&dateFrom=${dateFrom}&dateTo=${dateTo}&hotelId=${hotelId}">
+                                <form method="POST" action="/confirmation?userEmail=${userEmail}&hotelName=${hotelName}&hotelLocation=${hotelLocation}&hotelRoom=${hotelRooms}&hotelAdults=${hotelAdults}&hotelPrice=${hotelPrice}&dateFrom=${dateFrom}&dateTo=${dateTo}&hotelId=${hotelId}&hotelRooms=${hotelRooms}">
                             <button class="btn btn-success" id="email" type="submit">Email</button>
                                 </form>
                             </div>
